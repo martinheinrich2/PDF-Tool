@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>920</width>
+    <height>1050</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PDF Tool</string>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <widget class="QPdfView" name="pagesView" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="mouseTracking">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPdfView" name="pdfView" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>920</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen_2"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="actionQuit_PDF_Tool"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionZoom_in"/>
+    <addaction name="actionZoom_out"/>
+    <addaction name="actionZoom_to_fit"/>
+    <addaction name="actionPrevious_Page"/>
+    <addaction name="actionNext_Page"/>
+    <addaction name="actionRotate_Left"/>
+    <addaction name="actionRotate_Right"/>
+    <addaction name="actionInfo"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionMerge_Files"/>
+    <addaction name="actionDelete_Page"/>
+    <addaction name="actionExtract_Page"/>
+    <addaction name="actionSplit_File"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="separator"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionBack"/>
+   <addaction name="actionForward"/>
+   <addaction name="actionZoomIn"/>
+   <addaction name="actionZoomOut"/>
+   <addaction name="actionactionFitZoom"/>
+   <addaction name="actionRotateLeft"/>
+   <addaction name="actionRotateRight"/>
+   <addaction name="actionInfo_2"/>
+   <addaction name="actionMergePdf"/>
+   <addaction name="actionExport"/>
+   <addaction name="actionDeletePage"/>
+   <addaction name="actionSave"/>
+   <addaction name="separator"/>
+   <addaction name="actionExit"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/folder-open-svgrepo-com.svg</normaloff>:/resources/folder-open-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionOpen</string>
+   </property>
+   <property name="toolTip">
+    <string>Open Document</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionForward">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/arrow-thick-right-svgrepo-com.svg</normaloff>:/resources/arrow-thick-right-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionForward</string>
+   </property>
+   <property name="toolTip">
+    <string>Next Page</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionBack">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/arrow-thick-left-svgrepo-com.svg</normaloff>:/resources/arrow-thick-left-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionBack</string>
+   </property>
+   <property name="toolTip">
+    <string>Previous Page</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionZoomIn">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/zoom-in-svgrepo-com.svg</normaloff>:/resources/zoom-in-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionZoomIn</string>
+   </property>
+   <property name="toolTip">
+    <string>Zoom in</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionZoomOut">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/zoom-out-svgrepo-com.svg</normaloff>:/resources/zoom-out-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionZoomOut</string>
+   </property>
+   <property name="toolTip">
+    <string>Zoom out</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionRotateLeft">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/rotate-left-svgrepo-com.svg</normaloff>:/resources/rotate-left-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionRotateLeft</string>
+   </property>
+   <property name="toolTip">
+    <string>Rotate Left</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionRotateRight">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/rotate-right-svgrepo-com.svg</normaloff>:/resources/rotate-right-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionRotateRight</string>
+   </property>
+   <property name="toolTip">
+    <string>Rotate right</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionInfo_2">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/info-svgrepo-com.svg</normaloff>:/resources/info-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionInfo</string>
+   </property>
+   <property name="toolTip">
+    <string>Get Info About Document</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionMergePdf">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/merge-svgrepo-com.svg</normaloff>:/resources/merge-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionMergePdf</string>
+   </property>
+   <property name="toolTip">
+    <string>Merge Two PDF Files</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/extract-svgrepo-com.svg</normaloff>:/resources/extract-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionExit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit Program</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/extract-button-svgrepo-com.svg</normaloff>:/resources/extract-button-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionExport</string>
+   </property>
+   <property name="toolTip">
+    <string>Export Page</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/document-save-svgrepo-com.svg</normaloff>:/resources/document-save-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>actionSave</string>
+   </property>
+   <property name="toolTip">
+    <string>Save PDF As</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionOpen_2">
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Open File</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As ...</string>
+   </property>
+  </action>
+  <action name="actionQuit_PDF_Tool">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionZoom_in">
+   <property name="text">
+    <string>Zoom in</string>
+   </property>
+  </action>
+  <action name="actionZoom_out">
+   <property name="text">
+    <string>Zoom out</string>
+   </property>
+  </action>
+  <action name="actionPrevious_Page">
+   <property name="text">
+    <string>Previous Page</string>
+   </property>
+  </action>
+  <action name="actionNext_Page">
+   <property name="text">
+    <string>Next Page</string>
+   </property>
+  </action>
+  <action name="actionRotate_Left">
+   <property name="text">
+    <string>Rotate Left</string>
+   </property>
+  </action>
+  <action name="actionRotate_Right">
+   <property name="text">
+    <string>Rotate Right</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </action>
+  <action name="actionMerge_Files">
+   <property name="text">
+    <string>Append File</string>
+   </property>
+  </action>
+  <action name="actionExtract_Page">
+   <property name="text">
+    <string>Export Page</string>
+   </property>
+  </action>
+  <action name="actionHelp_PDF_Tool">
+   <property name="text">
+    <string>Help PDF Tool</string>
+   </property>
+  </action>
+  <action name="actionactionFitZoom">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/gui-zoom-fit-svgrepo-com.svg</normaloff>:/resources/gui-zoom-fit-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Fit to Page</string>
+   </property>
+   <property name="toolTip">
+    <string>Fit to Page</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="statusTip">
+    <string>About the App</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionDeletePage">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/pagedelete-svgrepo-com.svg</normaloff>:/resources/pagedelete-svgrepo-com.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Delete Page</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete current page from document.</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionZoom_to_fit">
+   <property name="text">
+    <string>Zoom to fit</string>
+   </property>
+  </action>
+  <action name="actionDelete_Page">
+   <property name="text">
+    <string>Delete Page</string>
+   </property>
+  </action>
+  <action name="actionSplit_File">
+   <property name="text">
+    <string>Split File</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QPdfView</class>
+   <extends>QWidget</extends>
+   <header location="global">qpdfview.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

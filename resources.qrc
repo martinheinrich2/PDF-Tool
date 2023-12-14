@@ -1,0 +1,20 @@
+<RCC>
+  <qresource prefix="/">
+    <file>resources/gui-zoom-fit-svgrepo-com.svg</file>
+    <file>resources/pagedelete-svgrepo-com.svg</file>
+    <file>resources/arrow-thick-left-svgrepo-com.svg</file>
+    <file>resources/arrow-thick-right-svgrepo-com.svg</file>
+    <file>resources/document-file-pdf-svgrepo-com.svg</file>
+    <file>resources/document-save-svgrepo-com.svg</file>
+    <file>resources/extract-button-svgrepo-com.svg</file>
+    <file>resources/extract-svgrepo-com.svg</file>
+    <file>resources/folder-open-svgrepo-com.svg</file>
+    <file>resources/info-svgrepo-com.svg</file>
+    <file>resources/merge-svgrepo-com.svg</file>
+    <file>resources/pdf-document-svgrepo-com.svg</file>
+    <file>resources/rotate-left-svgrepo-com.svg</file>
+    <file>resources/rotate-right-svgrepo-com.svg</file>
+    <file>resources/zoom-in-svgrepo-com.svg</file>
+    <file>resources/zoom-out-svgrepo-com.svg</file>
+  </qresource>
+</RCC>
