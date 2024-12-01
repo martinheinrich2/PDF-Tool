@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "PDF-Tool"
-version = "0.1.0"
+version = "0.1.1"
 description = "A PDF-Reader and tool capable of splitting, merging, rotating PDF files."
 authors = ["Martin.Heinrich <75615821+martinheinrich2@users.noreply.github.com>"]
 readme = "README.md"

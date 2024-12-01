@@ -103,7 +103,7 @@ class MainWindow(QMainWindow):
         """
         QMessageBox.about(
             self,
-            "About PDF-Tool",
+            "PDF-Tool",
             "<p>A PDF-Tool app built with:</p>"
             "<p>- PySide6</p>"
             "<p>- pypdf</p>"
@@ -215,6 +215,8 @@ class MainWindow(QMainWindow):
             os.getcwd(),
             "PDF (*.pdf, *.PDF)"
         )
+        # use filename in tmp folder for new merged file and load again
+        # e.g. tmp_merged.pdf
         save_filename = QFileDialog.getSaveFileName(
             self,
             "Save Merged File",
@@ -232,7 +234,7 @@ class MainWindow(QMainWindow):
     @Slot()
     def action_split_file(self):
         """
-        Split PDF file into separate file and save it to separate file
+        Split PDF file into separate pages and save them to separate files
         :return: None
         """
         split_folder = QFileDialog.getExistingDirectory()
@@ -276,7 +278,7 @@ class MainWindow(QMainWindow):
     @Slot()
     def action_rotate_left(self):
         """
-        Rotate page left by 90 degrees.
+        Rotate page left by 90 degrees and load document again.
         :return: None
         """
         if self.filename:
@@ -290,7 +292,7 @@ class MainWindow(QMainWindow):
     @Slot()
     def action_rotate_right(self):
         """
-        Rotate page right by 90 degrees.
+        Rotate page right by 90 degrees and load document again.
         :return: None
         """
         if self.filename:
@@ -340,11 +342,12 @@ class MainWindow(QMainWindow):
     @Slot()
     def action_zoom_fit(self):
         """
-        Set zoom factor to fit the screen and display the zoom factor in statusbar.
+        Set zoom factor to fit the document to the screen and display the zoom factor in statusbar.
         :return: None
         """
         nav = self.ui.pdfView.pageNavigator()
         self.ui.pdfView.setZoomFactor(1)
+        # Options for ZoomMode are: Custom, FitToWidth, FitInView
         self.ui.pdfView.setZoomMode(QPdfView.ZoomMode.FitInView)
         self.statusBar().showMessage(f'Page {nav.currentPage() + 1} of {self.pdf_document.pageCount()} - '
                                      f'Zoom 100%', timeout=0)
@@ -366,7 +369,7 @@ class MainWindow(QMainWindow):
     @Slot()
     def pdf_info(self):
         """
-        Display document information.
+        Display information about the document, like title, author, creator and subject.
         :return: None
         """
         messagebox_info = (f'<p>Document Title: {self.pdf_title}</p>'

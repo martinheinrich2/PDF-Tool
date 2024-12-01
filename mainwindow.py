@@ -159,9 +159,11 @@ class Ui_MainWindow(object):
         self.widget.setObjectName(u"widget")
         self.verticalLayout_2 = QVBoxLayout(self.widget)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        # Define the widgets splitter
         self.splitter = QSplitter(self.widget)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Horizontal)
+        # Set parameters for left window showing pages
         self.pagesView = QPdfView(self.splitter)
         self.pagesView.setObjectName(u"pagesView")
         sizePolicy = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Preferred)
@@ -170,6 +172,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.pagesView.sizePolicy().hasHeightForWidth())
         self.pagesView.setSizePolicy(sizePolicy)
         self.splitter.addWidget(self.pagesView)
+        # Set parameters for right window showing single page
         self.pdfView = QPdfView(self.splitter)
         self.pdfView.setObjectName(u"pdfView")
         sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
@@ -180,7 +183,6 @@ class Ui_MainWindow(object):
         self.splitter.addWidget(self.pdfView)
 
         self.verticalLayout_2.addWidget(self.splitter)
-
 
         self.verticalLayout.addWidget(self.widget)
 
@@ -331,7 +333,7 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.actionZoom_to_fit.setText(QCoreApplication.translate("MainWindow", u"Zoom to fit", None))
         self.actionDelete_Page.setText(QCoreApplication.translate("MainWindow", u"Delete Page", None))
-        self.actionSplit_File.setText(QCoreApplication.translate("MainWindow", u"Split File", None))
+        self.actionSplit_File.setText(QCoreApplication.translate("MainWindow", u"Split Document", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
         self.menuView.setTitle(QCoreApplication.translate("MainWindow", u"View", None))
         self.menuTools.setTitle(QCoreApplication.translate("MainWindow", u"Tools", None))
