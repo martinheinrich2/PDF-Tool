@@ -37,6 +37,9 @@ class PdfTools:
         merger = PdfWriter()
         merger.append(input1)
         merger.append(input2)
+        # write merged file to temp folder and load again
+        # new_save_filename = os.path.join(self.temp_folder.name, 'temp_merged.pdf')
+        
         with open(save_filename, "wb") as fp:
             merger.write(fp)
         return save_filename
