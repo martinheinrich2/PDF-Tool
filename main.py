@@ -86,10 +86,12 @@ class MainWindow(QMainWindow):
         self.ui.pagesView.setPageMode(QPdfView.PageMode.MultiPage)
         self.ui.pagesView.setPageSpacing(15)  # add padding between pages
         self.ui.pagesView.setDocument(self.pdf_document)
+        # ZoomMode has three options: Custom, FitToWidth, FitInView
         # self.ui.pagesView.setZoomMode(QPdfView.ZoomMode.FitToWidth)
-        # self.ui.pagesView.setZoomMode(QPdfView.ZoomMode.FitInView)
-        self.ui.pagesView.setZoomMode(QPdfView.ZoomMode.Custom)
-        self.ui.pagesView.setZoomFactor(0.39)
+        self.ui.pagesView.setZoomMode(QPdfView.ZoomMode.FitInView)
+        # self.ui.pagesView.setZoomMode(QPdfView.ZoomMode.Custom)
+        # self.ui.pagesView.setZoomFactor(0.39)
+        # self.ui.pagesView.setZoomFactor(0.35)
         # Get current page from multi-page view and change single page view
         nav_multi = self.ui.pagesView.pageNavigator()
         nav_multi.currentPageChanged.connect(self.set_current_page)
@@ -104,7 +106,7 @@ class MainWindow(QMainWindow):
         QMessageBox.about(
             self,
             "PDF-Tool",
-            "<p>A PDF-Tool app built with:</p>"
+            "<PDF-Tool built with:</p>"
             "<p>- PySide6</p>"
             "<p>- pypdf</p>"
             "<p>- Qt Designer</p>"
@@ -215,20 +217,16 @@ class MainWindow(QMainWindow):
             os.getcwd(),
             "PDF (*.pdf, *.PDF)"
         )
-        # use filename in tmp folder for new merged file and load again
-        # e.g. tmp_merged.pdf
-        save_filename = QFileDialog.getSaveFileName(
-            self,
-            "Save Merged File",
-            os.getcwd(),
-            "PDF (*.pdf)"
-        )
-        if save_filename:
-            append_file = self.pdf_tools.append_file(self.filename, append_filename, save_filename[0])
-            self.pdf_document.load(append_file)
+        if append_filename:
+            append_file = self.pdf_tools.append_file(self.filename, append_filename)
+            self.filename = self.pdf_tools.create_temporary_copy(append_file)
+            # Load pdf copy from temporary folder
+            self.pdf_version = self.pdf_tools.load_pdf(self.filename)
+        if self.filename:
+            self.path = Path(self.filename)
+            self.pdf_document.load(self.filename)
+
             self.statusBar().showMessage(f'Append File {append_filename} successfully.', timeout=5000)
-        else:
-            self.statusBar().showMessage("No File chosen.", timeout=5000)
         return
 
     @Slot()
