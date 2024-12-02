@@ -23,13 +23,12 @@ class PdfTools:
         self.writer = None
         self.temp_folder = tempfile.TemporaryDirectory()
 
-    @staticmethod
-    def append_file(filename1, filename2, save_filename):
+    # @staticmethod
+    def append_file(self, filename1, filename2):
         """
         Append file1 to file2 and save new file to given filename.
         :param filename1:
         :param filename2:
-        :param save_filename:
         :return: saved filename
         """
         input1 = PdfReader(filename1)
@@ -38,7 +37,7 @@ class PdfTools:
         merger.append(input1)
         merger.append(input2)
         # write merged file to temp folder and load again
-        # new_save_filename = os.path.join(self.temp_folder.name, 'temp_merged.pdf')
+        save_filename = os.path.join(self.temp_folder.name, 'temp_merged.pdf')
         
         with open(save_filename, "wb") as fp:
             merger.write(fp)
