@@ -289,7 +289,7 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.actionMergePdf.setText(QCoreApplication.translate("MainWindow", u"actionMergePdf", None))
 #if QT_CONFIG(tooltip)
-        self.actionMergePdf.setToolTip(QCoreApplication.translate("MainWindow", u"Merge Two PDF Files", None))
+        self.actionMergePdf.setToolTip(QCoreApplication.translate("MainWindow", u"Append PDF File", None))
 #endif // QT_CONFIG(tooltip)
         self.actionExit.setText(QCoreApplication.translate("MainWindow", u"actionExit", None))
 #if QT_CONFIG(tooltip)

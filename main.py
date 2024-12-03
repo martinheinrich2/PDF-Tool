@@ -106,11 +106,12 @@ class MainWindow(QMainWindow):
         QMessageBox.about(
             self,
             "PDF-Tool",
-            "<PDF-Tool built with:</p>"
-            "<p>- PySide6</p>"
-            "<p>- pypdf</p>"
-            "<p>- Qt Designer</p>"
-            "<p>- Python</p>",
+            "PDF-Tool built with:\n"
+            "\n"
+            "- PySide6\n"
+            "- pypdf\n"
+            "- Qt Designer\n"
+            "- Python 3.12\n",
         )
         return None
 

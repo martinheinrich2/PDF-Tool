@@ -280,7 +280,7 @@
     <string>actionMergePdf</string>
    </property>
    <property name="toolTip">
-    <string>Merge Two PDF Files</string>
+    <string>Append PDF File</string>
    </property>
    <property name="menuRole">
     <enum>QAction::TextHeuristicRole</enum>
